@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import EntryPoint from './src/EntryPoint';
+import Entry from './src/Entry';
 
 interface IProps {}
 
@@ -9,7 +9,7 @@ interface IProps {}
  **/
 
 const App: FC<IProps> = () => {
-  return <EntryPoint />;
+  return <Entry />;
 };
 
 export default App;
