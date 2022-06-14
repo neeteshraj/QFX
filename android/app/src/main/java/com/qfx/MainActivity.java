@@ -1,4 +1,5 @@
 package com.qfx;
+import android.os.Bundle;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
@@ -13,6 +14,18 @@ public class MainActivity extends ReactActivity {
   @Override
   protected String getMainComponentName() {
     return "QFX";
+  }
+
+  /**
+   * If the activity is being re-initialized after previously being shut down then this Bundle contains
+   * the data it most recently supplied in onSaveInstanceState(Bundle)
+   * 
+   * @param savedInstanceState A Bundle object containing the activity's previously saved state. If the
+   * activity has never existed before, the value of the Bundle object is null.
+   */
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(null);
   }
 
   /**
