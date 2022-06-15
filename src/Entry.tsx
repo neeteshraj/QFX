@@ -1,5 +1,6 @@
+import EntryNavigation from '@navigation/EntryNav';
 import React, {FC} from 'react';
-import DrawerNavigator from './navigators/DrawerNavigator';
+
 interface IProps {}
 
 /**
@@ -8,7 +9,7 @@ interface IProps {}
  **/
 
 const Entry: FC<IProps> = () => {
-  return <DrawerNavigator />;
+  return <EntryNavigation />;
 };
 
 export default Entry;
