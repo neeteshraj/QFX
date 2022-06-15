@@ -1,5 +1,7 @@
-import EntryNavigation from '@navigation/EntryNav';
 import React, {FC} from 'react';
+import EntryNavigation from '@navigation/EntryNav';
+import {Provider} from 'react-redux';
+import globalStore from '@redux/store/globalStore';
 
 interface IProps {}
 
@@ -9,7 +11,11 @@ interface IProps {}
  **/
 
 const Entry: FC<IProps> = () => {
-  return <EntryNavigation />;
+  return (
+    <Provider store={globalStore}>
+      <EntryNavigation />
+    </Provider>
+  );
 };
 
 export default Entry;

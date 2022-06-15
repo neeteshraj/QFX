@@ -1,7 +1,13 @@
-import React, {FC} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import React, {FC, useEffect} from 'react';
+import {View, StyleSheet, SafeAreaView, FlatList} from 'react-native';
+import {useDispatch, useSelector} from 'react-redux';
+import {requestNowShowing} from '@redux/actions/nowShowingAction';
+import MovieCard from '@components/MovieCard/MovieCard';
+import {BaseUrl} from '@constants/baseUrl';
 
-interface IProps {}
+interface IProps {
+  renderItem: any;
+}
 
 /**
  * @author Nitesh Raj Khanal
@@ -9,20 +15,39 @@ interface IProps {}
  **/
 
 const NowShowing: FC<IProps> = () => {
-  const {container} = styles;
+  const {flatList} = styles;
+  const dispatch = useDispatch();
+  const nowShowing = useSelector((state: any) => {
+    return state.nowShowing.nowShowing;
+  });
+  useEffect(() => {
+    dispatch(requestNowShowing());
+  }, [dispatch]);
   return (
-    <View style={container}>
-      <Text>NowShowing</Text>
-    </View>
+    <SafeAreaView>
+      <View>
+        <FlatList
+          style={flatList}
+          data={nowShowing}
+          keyExtractor={(show, index) => 'key' + index}
+          numColumns={2}
+          renderItem={(show: any) => {
+            return (
+              <MovieCard
+                urlToImage={`${BaseUrl}${show.item.thumbnailUrl}`}
+                title={show.item.name}
+                eventRating={show.item.eventRating}
+              />
+            );
+          }}
+        />
+      </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
+  flatList: {},
 });
 
 export default NowShowing;
