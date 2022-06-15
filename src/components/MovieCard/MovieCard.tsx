@@ -28,7 +28,7 @@ const MovieCard: FC<IProps> = ({title, urlToImage, eventRating}) => {
       <TouchableOpacity onPress={handleOnPress}>
         <Image style={image} source={{uri: urlToImage}} />
         <Text style={movieTitle}>{title}</Text>
-        <Text style={rating}>{eventRating}</Text>
+        <Text style={rating}>({eventRating})</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );

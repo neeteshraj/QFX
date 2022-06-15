@@ -10,7 +10,7 @@ const fetchUpcoming = async () => {
 function* workUpcomingFetch(): any {
   try {
     const upcoming = yield call(fetchUpcoming);
-    yield put({type: RECEIVE_UPCOMING, upcoming});
+    yield put({type: RECEIVE_UPCOMING, payload: upcoming});
   } catch (error) {
     console.log('Error=>', error);
   }

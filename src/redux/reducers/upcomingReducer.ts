@@ -22,7 +22,6 @@ const upcomingReducer = (
     case RECEIVE_UPCOMING:
       return {
         ...state,
-        isFetching: false,
         upcoming: action.payload,
       };
     case RECEIVE_UPCOMING_SUCCESS:

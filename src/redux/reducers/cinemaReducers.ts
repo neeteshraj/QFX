@@ -22,7 +22,6 @@ const cinemaReducers = (
     case RECEIVE_CINEMAS:
       return {
         ...state,
-        isFetching: false,
         movies: action.payload,
       };
     case RECEIVE_CINEMAS_SUCCESS:

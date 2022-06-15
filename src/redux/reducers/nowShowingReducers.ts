@@ -22,7 +22,6 @@ const nowShowingReducer = (
     case RECEIVE_NOWSHOWING:
       return {
         ...state,
-        isFetching: false,
         nowShowing: action.payload,
       };
     case RECEIVE_NOWSHOWING_SUCCESS:
