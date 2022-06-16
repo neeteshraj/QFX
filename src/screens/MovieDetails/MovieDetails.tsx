@@ -1,5 +1,7 @@
-import React, {FC} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import React, {FC, useState, useCallback} from 'react';
+import {View, Button, StyleSheet} from 'react-native';
+
+import YoutubePlayer from 'react-native-youtube-iframe';
 
 interface IProps {}
 
@@ -9,10 +11,9 @@ interface IProps {}
  **/
 
 const MovieDetails: FC<IProps> = () => {
-  const {container} = styles;
   return (
-    <View style={container}>
-      <Text>MovieDetails</Text>
+    <View>
+      <YoutubePlayer height={300} play={false} videoId={'dQw4w9WgXcQ'} />
     </View>
   );
 };

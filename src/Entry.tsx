@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
-import EntryNavigation from '@navigation/EntryNav';
 import {Provider} from 'react-redux';
 import globalStore from '@redux/store/globalStore';
+import StackScreen from '@navigation/StackNavigator/StackNav';
 
 interface IProps {}
 
@@ -13,7 +13,7 @@ interface IProps {}
 const Entry: FC<IProps> = () => {
   return (
     <Provider store={globalStore}>
-      <EntryNavigation />
+      <StackScreen />
     </Provider>
   );
 };

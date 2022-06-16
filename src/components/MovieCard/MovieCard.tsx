@@ -6,11 +6,26 @@ import {
   TouchableOpacity,
   Image,
 } from 'react-native';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {useNavigation} from '@react-navigation/native';
+
+export type RootStackParamList = {
+  MovieDetailsWrapper: {
+    title: string;
+    urlToImage: string;
+    annotations: string;
+    director: string;
+    cast: string;
+  };
+};
 
 interface IProps {
   urlToImage: string;
   title: string;
   eventRating: string;
+  director: string;
+  cast: string;
+  annotations: string;
 }
 
 /**
@@ -18,11 +33,28 @@ interface IProps {
  * @function @MovieCard
  **/
 
-const MovieCard: FC<IProps> = ({title, urlToImage, eventRating}) => {
+const MovieCard: FC<IProps> = ({
+  title,
+  urlToImage,
+  eventRating,
+  annotations,
+  director,
+  cast,
+}) => {
   const {container, image, movieTitle, rating} = styles;
+
+  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+
   const handleOnPress = () => {
-    console.log('Here i am pressed');
+    return navigation.navigate('MovieDetailsWrapper', {
+      title,
+      urlToImage,
+      annotations,
+      director,
+      cast,
+    });
   };
+
   return (
     <SafeAreaView style={container}>
       <TouchableOpacity onPress={handleOnPress}>

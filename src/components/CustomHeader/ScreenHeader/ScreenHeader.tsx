@@ -32,7 +32,7 @@ const ScreenHeader: FC<IProps> = (props: any) => {
           }
         </View>
         <View style={headerTitle}>
-          {<Text style={headerTitleText}>{route.name}</Text>}
+          {<Text style={headerTitleText}>{route.params?.title}</Text>}
         </View>
       </Surface>
     </SafeAreaView>
@@ -50,19 +50,18 @@ const styles = StyleSheet.create({
   },
   headerTopLeft: {
     flex: 1,
-    margin: 10,
+    marginLeft: 10,
     alignItems: 'center',
     flexDirection: 'row',
   },
   headerTitle: {
-    flex: 1,
     alignItems: 'center',
+    justifyContent: 'center',
     flexDirection: 'row',
     marginRight: 80,
   },
   headerTitleText: {
     fontSize: 20,
-    fontWeight: 'bold',
     color: colors.darkGray,
   },
 });
