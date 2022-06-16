@@ -5,14 +5,13 @@ import CustomHeader from '@components/CustomHeader/ScreenHeader/ScreenHeader';
  * @function @HOC
  **/
 
-const HOCScreen =
-  (Component: any) =>
-  ({props}: any) =>
-    (
-      <>
-        <CustomHeader />
-        <Component {...props} />
-      </>
-    );
+const HOCScreen = ({children}: any) => {
+  return (
+    <>
+      <CustomHeader />
+      {children}
+    </>
+  );
+};
 
 export default HOCScreen;

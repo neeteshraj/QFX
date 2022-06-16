@@ -37,6 +37,13 @@ const NowShowing: FC<IProps> = () => {
                 urlToImage={`${BaseUrl}${show.item.thumbnailUrl}`}
                 title={show.item.name}
                 eventRating={show.item.eventRating}
+                showID={show.item.showID}
+                mediaPlayerTrailerURL={show.item?.mediaURL}
+                annotation={show.item.annotation}
+                showLengthInMinutes={show.item.showLengthInMinutes}
+                director={show.item.director}
+                cast={show.item.cast}
+                genre={show.item.genre}
               />
             );
           }}

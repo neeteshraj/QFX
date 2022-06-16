@@ -11,23 +11,30 @@ import {useNavigation} from '@react-navigation/native';
 
 export type RootStackParamList = {
   MovieDetailsWrapper: {
-    id: string;
+    showID: number;
     title: string;
     urlToImage: string;
-    annotations: string;
+    eventRating: string;
+    genre: string;
     director: string;
     cast: string;
+    mediaPlayerTrailerURL: string;
+    annotation: string;
+    showLengthInMinutes: number;
   };
 };
 
 interface IProps {
-  id: string;
+  showID: number;
   urlToImage: string;
   title: string;
   eventRating: string;
+  genre: string;
+  mediaPlayerTrailerURL: string;
+  annotation: string;
+  showLengthInMinutes: number;
   director: string;
   cast: string;
-  annotations: string;
 }
 
 /**
@@ -36,11 +43,14 @@ interface IProps {
  **/
 
 const MovieCard: FC<IProps> = ({
-  id,
+  showID,
   title,
+  genre,
   urlToImage,
   eventRating,
-  annotations,
+  mediaPlayerTrailerURL,
+  annotation,
+  showLengthInMinutes,
   director,
   cast,
 }) => {
@@ -50,12 +60,16 @@ const MovieCard: FC<IProps> = ({
 
   const handleOnPress = () => {
     return navigation.navigate('MovieDetailsWrapper', {
-      id,
+      showID,
       title,
       urlToImage,
-      annotations,
+      eventRating,
+      mediaPlayerTrailerURL,
+      annotation,
+      showLengthInMinutes,
       director,
       cast,
+      genre,
     });
   };
 

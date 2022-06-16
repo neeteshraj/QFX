@@ -37,6 +37,8 @@ const ComingSoon: FC<IProps> = () => {
                 urlToImage={`${BaseUrl}${show.item.thumbnailUrl}`}
                 title={show.item.name}
                 eventRating={show.item.eventRating}
+                showID={show.item.id}
+                mediaPlayerTrailerURL={show.item?.mediaPlayerTrailerURL}
               />
             );
           }}

@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import React from 'react';
 import MovieDetails from '@screens/MovieDetails/MovieDetails';
 import CustomHeader from '@components/HigherOrderComponent/HOCScreen';
 
@@ -7,13 +7,12 @@ import CustomHeader from '@components/HigherOrderComponent/HOCScreen';
  * @function @MovieDetailsWrapper
  **/
 
-const MovieDetailsWrapper = () => {
-  const MovieDetailsHeader = useMemo(() => {
-    return CustomHeader(MovieDetails);
-  }, []);
+const MovieDetailsWrapper = (props: any) => {
   return (
     <>
-      <MovieDetailsHeader />
+      <CustomHeader>
+        <MovieDetails data={props.route.params} />
+      </CustomHeader>
     </>
   );
 };

@@ -14,13 +14,11 @@ interface IProps {}
  * @function @ScreenHeader
  **/
 
-const ScreenHeader: FC<IProps> = (props: any) => {
+const ScreenHeader: FC<IProps> = () => {
   const navigation = useNavigation();
   const route = useRoute();
   const {headerContainer, headerTopLeft, headerTitle, headerTitleText} = styles;
 
-  console.log(route.name);
-  console.log('ScreenHeader', props);
   return (
     <SafeAreaView>
       <Surface style={headerContainer}>

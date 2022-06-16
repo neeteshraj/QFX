@@ -16,7 +16,7 @@ interface IProps {}
  * @function @CustomHeader
  **/
 
-const CustomHeader: FC<IProps> = () => {
+const CustomHeader: FC<IProps> = (props:any) => {
   const navigation = useNavigation();
   const {headerContainer, headerTopLeft, logoContainer, logo, headerTopRight} =
     styles;
