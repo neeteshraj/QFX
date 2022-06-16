@@ -15,6 +15,8 @@ import {
 import Logo from '@assets/images/logo.png';
 import colors from '@assets/styles/colors';
 
+import AntIcon from 'react-native-vector-icons/AntDesign';
+
 interface IProps {}
 
 /**
@@ -45,9 +47,11 @@ const CustomDrawer: FC<IProps> = (props: any) => {
         <View style={drawerItems}>
           <DrawerItemList {...props} />
         </View>
+
         {loggedIn ? (
           <View style={drawerItems}>
             <TouchableOpacity style={signout} onPress={signOut}>
+              <AntIcon name="login" size={22} />
               <Text style={signoutbutton}>Sign Out</Text>
             </TouchableOpacity>
           </View>
@@ -76,10 +80,11 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   signout: {
-    paddingVertical: 10,
+    flexDirection: 'row',
+    marginLeft: 20,
   },
   signoutbutton: {
-    marginLeft: 20,
+    marginLeft: 30,
   },
 });
 
