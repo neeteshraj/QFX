@@ -11,6 +11,7 @@ import {useNavigation} from '@react-navigation/native';
 
 export type RootStackParamList = {
   MovieDetailsWrapper: {
+    id: string;
     title: string;
     urlToImage: string;
     annotations: string;
@@ -20,6 +21,7 @@ export type RootStackParamList = {
 };
 
 interface IProps {
+  id: string;
   urlToImage: string;
   title: string;
   eventRating: string;
@@ -34,6 +36,7 @@ interface IProps {
  **/
 
 const MovieCard: FC<IProps> = ({
+  id,
   title,
   urlToImage,
   eventRating,
@@ -47,6 +50,7 @@ const MovieCard: FC<IProps> = ({
 
   const handleOnPress = () => {
     return navigation.navigate('MovieDetailsWrapper', {
+      id,
       title,
       urlToImage,
       annotations,

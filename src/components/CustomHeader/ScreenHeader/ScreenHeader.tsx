@@ -32,7 +32,21 @@ const ScreenHeader: FC<IProps> = (props: any) => {
           }
         </View>
         <View style={headerTitle}>
-          {<Text style={headerTitleText}>{route.params?.title}</Text>}
+          {
+            <Text style={headerTitleText}>
+              {route.name === 'Home'
+                ? 'Home'
+                : route.name === 'Login'
+                ? 'Login'
+                : route.name === 'MyProfile'
+                ? 'My Profile'
+                : route.name === 'Support'
+                ? 'Support'
+                : route.name === 'Location'
+                ? 'Location'
+                : route.params?.title}
+            </Text>
+          }
         </View>
       </Surface>
     </SafeAreaView>
@@ -47,22 +61,26 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     backgroundColor: colors.primary,
+    width: '100%',
   },
   headerTopLeft: {
-    flex: 1,
-    marginLeft: 10,
+    marginLeft: 5,
     alignItems: 'center',
     flexDirection: 'row',
+    justifyContent: 'center',
   },
   headerTitle: {
+    flex: 1,
+    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    flexDirection: 'row',
-    marginRight: 80,
+    marginRight: 20,
   },
   headerTitleText: {
     fontSize: 20,
     color: colors.darkGray,
+    fontWeight: 'bold',
+    justifyContent: 'center',
   },
 });
 
