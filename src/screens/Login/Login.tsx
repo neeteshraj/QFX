@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, Alert, TouchableOpacity} from 'react-native';
 
 interface IProps {}
 

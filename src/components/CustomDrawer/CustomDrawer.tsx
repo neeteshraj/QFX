@@ -1,18 +1,11 @@
 import React, {FC, useState} from 'react';
-import {
-  SafeAreaView,
-  View,
-  Text,
-  Image,
-  TouchableOpacity,
-  StyleSheet,
-} from 'react-native';
+import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
 import {
   DrawerContentScrollView,
   DrawerItemList,
 } from '@react-navigation/drawer';
 
-import Logo from '@assets/images/logo.png';
+import Logo from '@assets/images/headerLogo.png';
 import colors from '@assets/styles/colors';
 
 import AntIcon from 'react-native-vector-icons/AntDesign';
@@ -25,20 +18,30 @@ interface IProps {}
  **/
 
 const CustomDrawer: FC<IProps> = (props: any) => {
-  //   const [loggedIn, setLoggedIn] = useState(false);
-  const [loggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
+  // const [loggedIn] = useState(false);
 
-  const signOut = () => {
-    console.log('sign out');
+  const {
+    container,
+    logo,
+    text,
+    drawerItems,
+    logoContainer,
+    iconContainer,
+    logout,
+    logoutIcon,
+    logoutText,
+  } = styles;
+
+  const logoutHandler = () => {
+    setLoggedIn(false);
   };
-  const {container, logo, drawerItems, signout, signoutbutton, logoContainer} =
-    styles;
   return (
-    <SafeAreaView style={container}>
+    <View style={container}>
       <DrawerContentScrollView {...props}>
         {loggedIn ? (
           <View style={logoContainer}>
-            <Text style={logo}>Nitesh Raj Khanal</Text>
+            <Text style={text}>Nitesh Raj Khanal</Text>
           </View>
         ) : (
           <View style={logoContainer}>
@@ -48,44 +51,66 @@ const CustomDrawer: FC<IProps> = (props: any) => {
         <View style={drawerItems}>
           <DrawerItemList {...props} />
         </View>
-
         {loggedIn ? (
-          <View style={drawerItems}>
-            <TouchableOpacity style={signout} onPress={signOut}>
-              <AntIcon name="login" size={22} />
-              <Text style={signoutbutton}>Sign Out</Text>
-            </TouchableOpacity>
-          </View>
+          <TouchableOpacity style={logout} onPress={logoutHandler}>
+            <View style={iconContainer}>
+              <AntIcon name="logout" size={22} style={logoutIcon} />
+            </View>
+            <Text style={logoutText}>Logout</Text>
+          </TouchableOpacity>
         ) : null}
       </DrawerContentScrollView>
-    </SafeAreaView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.offWhite,
+    backgroundColor: colors.gray,
     height: '100%',
   },
   logoContainer: {
-    height: 150,
+    height: 100,
     backgroundColor: colors.darkGray,
   },
   logo: {
-    height: 140,
+    marginTop: 5,
+    height: 90,
     width: '100%',
+  },
+  text: {
+    color: colors.primary,
+    fontSize: 25,
+    textAlign: 'center',
+    paddingTop: 37,
   },
   drawerItems: {
     flex: 1,
-    marginTop: 20,
   },
-  signout: {
+  logout: {
     flexDirection: 'row',
+    alignItems: 'center',
     marginLeft: 20,
+    marginTop: 10,
   },
-  signoutbutton: {
-    marginLeft: 30,
+  iconContainer: {
+    backgroundColor: colors.offWhite,
+    borderWidth: 1,
+    height: 40,
+    width: 40,
+    borderRadius: 50,
+  },
+  logoutIcon: {
+    color: colors.primary,
+    textAlign: 'center',
+    paddingTop: 8,
+  },
+  logoutText: {
+    color: colors.primary,
+    fontSize: 18,
+    marginLeft: 15,
+    fontWeight: 'normal',
   },
 });
 

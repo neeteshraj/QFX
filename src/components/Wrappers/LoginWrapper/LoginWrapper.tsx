@@ -1,6 +1,6 @@
 import React, {useMemo} from 'react';
 import Login from '@screens/Login/Login';
-import CustomHeader from '@components/HigherOrderComponent/HOCScreen';
+import CustomHeader from '@components/HigherOrderComponent/HOCScreens';
 
 /**
  * @author Nitesh Raj Khanal

@@ -14,7 +14,7 @@ interface IProps {}
  * @function @ScreenHeader
  **/
 
-const MovieDetailsHeader: FC<IProps> = () => {
+const ScreenHeader: FC<IProps> = () => {
   const navigation = useNavigation();
   const route = useRoute();
   const {headerContainer, headerTopLeft, headerTitle, headerTitleText} = styles;
@@ -32,7 +32,11 @@ const MovieDetailsHeader: FC<IProps> = () => {
         <View style={headerTitle}>
           {
             <Text style={headerTitleText}>
-              {route.name === 'Home' ? 'Home' : route.params?.title}
+              {route.name === 'Home'
+                ? 'Home'
+                : route.name === 'Login'
+                ? 'Login'
+                : null}
             </Text>
           }
         </View>
@@ -72,4 +76,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MovieDetailsHeader;
+export default ScreenHeader;

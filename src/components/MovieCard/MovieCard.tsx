@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {useNavigation} from '@react-navigation/native';
+import colors from '@assets/styles/colors';
 
 export type RootStackParamList = {
   MovieDetailsWrapper: {
@@ -101,6 +102,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     flexDirection: 'row',
     margin: 5,
+    color: colors.primary,
   },
   rating: {
     flex: 1,
@@ -109,6 +111,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     flexDirection: 'row',
     margin: 5,
+    color: colors.primary,
   },
 });
 

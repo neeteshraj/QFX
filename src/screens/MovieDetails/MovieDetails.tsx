@@ -2,6 +2,7 @@ import React, {FC} from 'react';
 import {View, Text, SafeAreaView, StyleSheet} from 'react-native';
 import youtubeParser from '@utils/youtubeParser';
 import YoutubePlayer from 'react-native-youtube-iframe';
+import colors from '@assets/styles/colors';
 
 interface IProps {}
 
@@ -71,6 +72,7 @@ const styles = StyleSheet.create({
   titleText: {
     fontSize: 20,
     fontWeight: 'bold',
+    color: colors.primary,
   },
   miscDetails: {
     marginLeft: 10,
@@ -79,6 +81,7 @@ const styles = StyleSheet.create({
   miscDetailsText: {
     fontSize: 15,
     lineHeight: 25,
+    color: colors.primary,
   },
   synopsis: {
     marginLeft: 10,
@@ -87,6 +90,7 @@ const styles = StyleSheet.create({
   synopsisText: {
     fontSize: 15,
     textAlign: 'justify',
+    color: colors.primary,
   },
 });
 
