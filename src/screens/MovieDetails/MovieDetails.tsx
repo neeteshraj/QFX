@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import {View, Text, SafeAreaView, StyleSheet} from 'react-native';
-
+import youtubeParser from '@utils/youtubeParser';
 import YoutubePlayer from 'react-native-youtube-iframe';
 
 interface IProps {}
@@ -31,13 +31,7 @@ const MovieDetails: FC<IProps> = ({data}: any) => {
     synopsisText,
   } = styles;
 
-  function youtube_parser(url: string) {
-    var regExp =
-      /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
-    var match = url.match(regExp);
-    return match && match[7].length === 11 ? match[7] : undefined;
-  }
-  const url = youtube_parser(mediaPlayerTrailerURL);
+  const url = youtubeParser(mediaPlayerTrailerURL);
 
   return (
     <SafeAreaView>

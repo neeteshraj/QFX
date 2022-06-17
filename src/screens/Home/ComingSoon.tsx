@@ -39,6 +39,11 @@ const ComingSoon: FC<IProps> = () => {
                 eventRating={show.item.eventRating}
                 showID={show.item.id}
                 mediaPlayerTrailerURL={show.item?.mediaPlayerTrailerURL}
+                annotation={show.item.annotation}
+                showLengthInMinutes={show.item.showLengthInMinutes}
+                director={show.item.director}
+                cast={show.item.cast}
+                genre={show.item.genre}
               />
             );
           }}
