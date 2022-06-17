@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {requestCinemas} from '@redux/actions/cinemaAction';
 import MovieCard from '@components/MovieCard/MovieCard';
 import {BaseUrl} from '@constants/baseUrl';
+import colors from '@assets/styles/colors';
 
 interface IProps {
   renderItem: any;
@@ -15,10 +16,9 @@ interface IProps {
  **/
 
 const Cinemas: FC<IProps> = () => {
-  const {container} = styles;
+  const {container, flatList, theatreName, theatreNameText} = styles;
   const dispatch = useDispatch();
   const cinemas = useSelector((state: any) => {
-    console.log('State =>', state.cinema.cinemas);
     return state.cinema.cinemas;
   });
 
@@ -26,20 +26,63 @@ const Cinemas: FC<IProps> = () => {
     dispatch(requestCinemas());
   }, [dispatch]);
 
-  console.log('Cinemas =>', cinemas);
-
   return (
-    <View style={container}>
-      <Text>Cinemas</Text>
-    </View>
+    <SafeAreaView>
+      <View style={container}>
+        <FlatList
+          style={flatList}
+          data={cinemas}
+          keyExtractor={(show, index) => 'key' + index}
+          renderItem={(show: any) => {
+            return (
+              <>
+                <View style={theatreName}>
+                  <Text style={theatreNameText}>{show.item.theatreName}</Text>
+                </View>
+                <FlatList
+                  style={flatList}
+                  data={show.item.events}
+                  keyExtractor={(movies, index) => 'key' + index}
+                  numColumns={2}
+                  renderItem={(movies: any) => {
+                    return (
+                      <MovieCard
+                        id={movies.item.eventId}
+                        companyId={movies.item.theatreId}
+                        urlToImage={`${BaseUrl}${movies.item.thumbnailUrl}`}
+                        title={movies.item.name}
+                        eventRating={movies.item.eventRating}
+                        annotation={movies.item.annotation}
+                        mediaPlayerTrailerURL={movies.item.mediaLink}
+                        genre={movies.item.genre}
+                        director={movies.item.director}
+                        cast={movies.item.cast}
+                      />
+                    );
+                  }}
+                />
+              </>
+            );
+          }}
+        />
+      </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    marginRight: 10,
     justifyContent: 'center',
-    alignItems: 'center',
+  },
+  flatList: {},
+  theatreName: {
+    marginTop: 10,
+    marginLeft: 10,
+  },
+  theatreNameText: {
+    fontSize: 25,
+    color: colors.iconColor,
   },
 });
 
