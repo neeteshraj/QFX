@@ -12,7 +12,7 @@ function* workCinemasFetch(): any {
     const cinemas = yield call(fetchCinemas);
     yield put({type: RECEIVE_CINEMAS, payload: cinemas});
   } catch (error) {
-    console.log('Error:=>', error);
+    console.log('Error =>', error);
   }
 }
 

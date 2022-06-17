@@ -26,7 +26,8 @@ interface IProps {}
 
 const CustomDrawer: FC<IProps> = (props: any) => {
   //   const [loggedIn, setLoggedIn] = useState(false);
-  const [loggedIn] = useState(false);
+  const [loggedIn] = useState(true);
+
   const signOut = () => {
     console.log('sign out');
   };
