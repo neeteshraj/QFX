@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {requestUpcoming} from '@redux/actions/upcomingAction';
 import MovieCard from '@components/MovieCard/MovieCard';
 import {BaseUrl} from '@constants/baseUrl';
+import colors from '@assets/styles/colors';
 
 interface IProps {
   renderItem: any;
@@ -15,7 +16,7 @@ interface IProps {
  **/
 
 const ComingSoon: FC<IProps> = () => {
-  const {flatList} = styles;
+  const {parentContainer, container, flatList} = styles;
   const dispatch = useDispatch();
   const comingSoon = useSelector((state: any) => {
     return state.upcoming.upcoming;
@@ -24,8 +25,8 @@ const ComingSoon: FC<IProps> = () => {
     dispatch(requestUpcoming());
   }, [dispatch]);
   return (
-    <SafeAreaView>
-      <View>
+    <SafeAreaView style={parentContainer}>
+      <View style={container}>
         <FlatList
           style={flatList}
           data={comingSoon}
@@ -54,6 +55,15 @@ const ComingSoon: FC<IProps> = () => {
 };
 
 const styles = StyleSheet.create({
+  parentContainer: {
+    backgroundColor: colors.background,
+    width: '100%',
+    height: '100%',
+  },
+  container: {
+    marginRight: 10,
+    justifyContent: 'center',
+  },
   flatList: {},
 });
 

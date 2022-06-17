@@ -5,4 +5,9 @@ export default {
   gray: '#f5f5f5',
   darkGray: '#bdbdbd',
   offWhite: '#fafafa',
+  background: '#ababab',
+  headerNoticeBackground: '#cc2030',
+  logoBackground: '#828282',
+  drawerNavBackground: '#cccacb',
+  cinemasNameText: '#048a9d',
 };

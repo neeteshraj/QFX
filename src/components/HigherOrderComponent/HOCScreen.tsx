@@ -1,5 +1,5 @@
 import React from 'react';
-import CustomHeader from '@components/CustomHeader/ScreenHeader/ScreenHeader';
+import CustomHeader from '@components/CustomHeader/ScreenHeader/MovieDetailsHeader';
 /**
  * @author Nitesh Raj Khanal
  * @function @HOC

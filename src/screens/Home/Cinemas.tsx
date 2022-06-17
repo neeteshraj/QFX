@@ -16,7 +16,8 @@ interface IProps {
  **/
 
 const Cinemas: FC<IProps> = () => {
-  const {container, flatList, theatreName, theatreNameText} = styles;
+  const {parentContainer, container, flatList, theatreName, theatreNameText} =
+    styles;
   const dispatch = useDispatch();
   const cinemas = useSelector((state: any) => {
     return state.cinema.cinemas;
@@ -27,7 +28,7 @@ const Cinemas: FC<IProps> = () => {
   }, [dispatch]);
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={parentContainer}>
       <View style={container}>
         <FlatList
           style={flatList}
@@ -71,6 +72,11 @@ const Cinemas: FC<IProps> = () => {
 };
 
 const styles = StyleSheet.create({
+  parentContainer: {
+    backgroundColor: colors.background,
+    width: '100%',
+    height: '100%',
+  },
   container: {
     marginRight: 10,
     justifyContent: 'center',
@@ -82,7 +88,7 @@ const styles = StyleSheet.create({
   },
   theatreNameText: {
     fontSize: 25,
-    color: colors.iconColor,
+    color: colors.cinemasNameText,
   },
 });
 

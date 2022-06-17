@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {requestNowShowing} from '@redux/actions/nowShowingAction';
 import MovieCard from '@components/MovieCard/MovieCard';
 import {BaseUrl} from '@constants/baseUrl';
+import colors from '@assets/styles/colors';
 
 interface IProps {
   renderItem: any;
@@ -15,7 +16,7 @@ interface IProps {
  **/
 
 const NowShowing: FC<IProps> = () => {
-  const {flatList} = styles;
+  const {parentContainer, container, flatList} = styles;
   const dispatch = useDispatch();
   const nowShowing = useSelector((state: any) => {
     return state.nowShowing.nowShowing;
@@ -24,8 +25,8 @@ const NowShowing: FC<IProps> = () => {
     dispatch(requestNowShowing());
   }, [dispatch]);
   return (
-    <SafeAreaView>
-      <View>
+    <SafeAreaView style={parentContainer}>
+      <View style={container}>
         <FlatList
           style={flatList}
           data={nowShowing}
@@ -54,6 +55,15 @@ const NowShowing: FC<IProps> = () => {
 };
 
 const styles = StyleSheet.create({
+  parentContainer: {
+    backgroundColor: colors.background,
+    width: '100%',
+    height: '100%',
+  },
+  container: {
+    marginRight: 10,
+    justifyContent: 'center',
+  },
   flatList: {},
 });
 
