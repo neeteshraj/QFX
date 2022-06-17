@@ -6,7 +6,7 @@ import {
 
 export const initialState = {
   isFetching: false,
-  movies: [],
+  cinemas: [],
 };
 
 const cinemaReducers = (
@@ -22,7 +22,7 @@ const cinemaReducers = (
     case RECEIVE_CINEMAS:
       return {
         ...state,
-        movies: action.payload,
+        cinemas: action.payload,
       };
     case RECEIVE_CINEMAS_SUCCESS:
       return {

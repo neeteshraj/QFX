@@ -2,22 +2,22 @@ import {call, put, takeEvery} from 'redux-saga/effects';
 import {REQUEST_CINEMAS, RECEIVE_CINEMAS} from '../types/cinemaTypes';
 import {GET} from '../../services/movieData';
 
-const fetchMovies = async () => {
-  const response = await GET('api/public/cinemas');
+const fetchCinemas = async () => {
+  const response = await GET('api/public/Cinemas');
   return response.data.data;
 };
 
-function* workMoviesFetch(): any {
+function* workCinemasFetch(): any {
   try {
-    const movies = yield call(fetchMovies);
-    yield put({type: RECEIVE_CINEMAS, payload: movies});
+    const cinemas = yield call(fetchCinemas);
+    yield put({type: RECEIVE_CINEMAS, payload: cinemas});
   } catch (error) {
     console.log('Error:=>', error);
   }
 }
 
-function* moviesSaga(): any {
-  yield takeEvery(REQUEST_CINEMAS, workMoviesFetch);
+function* cinemasSaga(): any {
+  yield takeEvery(REQUEST_CINEMAS, workCinemasFetch);
 }
 
-export default moviesSaga;
+export default cinemasSaga;
