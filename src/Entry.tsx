@@ -2,9 +2,7 @@ import React, {FC, useEffect} from 'react';
 import {Provider} from 'react-redux';
 import globalStore from '@redux/store/globalStore';
 import StackScreen from '@navigation/StackNavigator/StackNav';
-
-import RNBootSplash from 'react-native-bootsplash';
-
+import compareAppVersion from '@utils/compareAppVersion';
 interface IProps {}
 
 /**
@@ -14,7 +12,7 @@ interface IProps {}
 
 const Entry: FC<IProps> = () => {
   useEffect(() => {
-    RNBootSplash.hide({fade: true});
+    compareAppVersion();
   }, []);
 
   return (
