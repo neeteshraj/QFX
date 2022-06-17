@@ -11,8 +11,6 @@ import pkg from '../../package.json';
 
 const appVersion = pkg.version;
 
-console.log('App Version', appVersion);
-
 const platform = Platform.OS;
 
 const compareAppVersion = async () => {
