@@ -5,6 +5,7 @@ export default {
   gray: '#f5f5f5',
   darkGray: '#bdbdbd',
   offWhite: '#fafafa',
+  buttonColor: '#9a9999',
   background: '#ababab',
   headerNoticeBackground: '#cc2030',
   logoBackground: '#828282',
