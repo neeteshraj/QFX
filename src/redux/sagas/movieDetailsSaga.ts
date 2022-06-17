@@ -3,7 +3,7 @@ import {
   REQUEST_MOVIE_DETAILS,
   RECEIVE_MOVIE_DETAILS,
 } from '../types/movieDetailTypes';
-import {GET} from '../../services/movieData';
+import {GET} from '@services/movieData';
 
 const fetchMovieDetails = async () => {
   const response = await GET('api/public/Event');

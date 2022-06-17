@@ -1,6 +1,6 @@
 import {call, put, takeEvery} from 'redux-saga/effects';
 import {RECEIVE_NOWSHOWING, REQUEST_NOWSHOWING} from '../types/nowShowingTypes';
-import {GET} from '../../services/movieData';
+import {GET} from '@services/movieData';
 
 const fetchNowShowing = async () => {
   const response = await GET('api/public/NowShowing');

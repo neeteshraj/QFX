@@ -1,6 +1,6 @@
 import {call, put, takeEvery} from 'redux-saga/effects';
 import {REQUEST_CINEMAS, RECEIVE_CINEMAS} from '../types/cinemaTypes';
-import {GET} from '../../services/movieData';
+import {GET} from '@services/movieData';
 
 const fetchCinemas = async () => {
   const response = await GET('api/public/Cinemas');
