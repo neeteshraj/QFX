@@ -14,6 +14,13 @@ interface IProps {}
  * @function @ScreenHeader
  **/
 
+/**
+ * The MovieDetailsHeader function is a React functional component that returns a SafeAreaView
+ * component that contains a Surface component that contains a View component that contains a
+ * TouchableOpacity component that contains an Ionicons component and a View component that contains a
+ * Text component
+ * @returns A React component that renders a header for the movie details screen.
+ */
 const MovieDetailsHeader: FC<IProps> = () => {
   const navigation = useNavigation();
   const route = useRoute();

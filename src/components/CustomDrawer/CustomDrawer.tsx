@@ -19,6 +19,7 @@ interface IProps {}
  * @function @CustomDrawer
  **/
 
+/* This is a functional component that is used to customize the drawer navigation. */
 const CustomDrawer: FC<IProps> = (props: any) => {
   const {userInfo, setAccess_token, setUserInfo} = useContext(AuthContext);
   const {

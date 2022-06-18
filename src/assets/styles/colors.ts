@@ -11,4 +11,5 @@ export default {
   logoBackground: '#828282',
   drawerNavBackground: '#cccacb',
   cinemasNameText: '#048a9d',
+  editButton: '#7F8487',
 };

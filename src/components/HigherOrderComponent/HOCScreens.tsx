@@ -5,6 +5,8 @@ import CustomHeader from '@components/CustomHeader/ScreenHeader/ScreenHeader';
  * @function @HOC
  **/
 
+/* A Higher Order Component. It is a function that takes a component as an argument and returns a new
+component. */
 const HOC =
   (Component: any) =>
   ({props}: any) =>

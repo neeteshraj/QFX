@@ -14,6 +14,12 @@ interface IProps {}
  * @function @ScreenHeader
  **/
 
+/**
+ * The ScreenHeader function is a React functional component that returns a SafeAreaView component that
+ * contains a Surface component that contains a View component that contains a TouchableOpacity
+ * component that contains an Ionicons component and a View component that contains a Text component
+ * @returns A React component that is a functional component.
+ */
 const ScreenHeader: FC<IProps> = () => {
   const navigation = useNavigation();
   const route = useRoute();
@@ -36,6 +42,8 @@ const ScreenHeader: FC<IProps> = () => {
                 ? 'Home'
                 : route.name === 'Login'
                 ? 'Login'
+                : route.name === 'My Profile'
+                ? 'Profile'
                 : null}
             </Text>
           }

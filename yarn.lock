@@ -2926,6 +2926,11 @@
   "resolved" "https://registry.npmjs.org/@types/prop-types/-/prop-types-15.7.5.tgz"
   "version" "15.7.5"
 
+"@types/react-native-crypto-js@^1.0.0":
+  "integrity" "sha512-YqNZiTWsEoP0bqN7gQShOjskK/cJFpBhgVMMIGfUnbGeSytHT2SSrT1TVW1f9yNP5x4uSpry2Rq2BQS7qcC4fQ=="
+  "resolved" "https://registry.npmjs.org/@types/react-native-crypto-js/-/react-native-crypto-js-1.0.0.tgz"
+  "version" "1.0.0"
+
 "@types/react-native-dotenv@^0.2.0":
   "integrity" "sha512-ZxX+dU/yoQc0jTk+/NWttkiuXceJyN5FpOSqDl0WynN5GDzxwH7OMruQ47qcY8llo2RD3irjvzJ9BwC8gDiq0A=="
   "resolved" "https://registry.npmjs.org/@types/react-native-dotenv/-/react-native-dotenv-0.2.0.tgz"

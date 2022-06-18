@@ -1,11 +1,11 @@
-import React, {FC, useContext, useState} from 'react';
+import React, {FC, useContext} from 'react';
 import {View, StyleSheet} from 'react-native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import colors from '@assets/styles/colors';
 import LoginWrapper from '@components/Wrappers/LoginWrapper/LoginWrapper';
 import HomeWrapper from '@components/Wrappers/HomeWrapper/Home';
+import ProfileWrapper from '@components/Wrappers/ProfileWrapper/ProfileWrapper';
 import CustomDrawer from '@components/CustomDrawer/CustomDrawer';
-import Profile from '@screens/Profile/Profile';
 
 import EntypoIcon from 'react-native-vector-icons/Entypo';
 import AntIcon from 'react-native-vector-icons/AntDesign';
@@ -22,12 +22,9 @@ interface IProps {}
 const Drawer = createDrawerNavigator();
 
 const DrawerNavigator: FC<IProps> = () => {
-  // const [loggedIn, setLoggedIn] = useState(true);
-
   const {userInfo} = useContext(AuthContext);
-  console.log('User Info =>', userInfo);
-  const [loggedIn] = useState(false);
   const {iconContainer, icon} = styles;
+  /* Creating a drawer navigator. */
   return (
     <Drawer.Navigator
       drawerContent={props => <CustomDrawer {...props} />}
@@ -67,7 +64,7 @@ const DrawerNavigator: FC<IProps> = () => {
       {userInfo ? (
         <Drawer.Screen
           name="My Profile"
-          component={Profile}
+          component={ProfileWrapper}
           options={{
             drawerIcon: ({color}) => (
               <View style={iconContainer}>
@@ -77,20 +74,6 @@ const DrawerNavigator: FC<IProps> = () => {
                   color={color}
                   style={icon}
                 />
-              </View>
-            ),
-          }}
-        />
-      ) : null}
-
-      {loggedIn ? (
-        <Drawer.Screen
-          name="Logout"
-          component={LoginWrapper}
-          options={{
-            drawerIcon: ({color}) => (
-              <View style={iconContainer}>
-                <AntIcon name="logout" size={22} color={color} style={icon} />
               </View>
             ),
           }}

@@ -1,9 +1,9 @@
-import React, {FC, useEffect, useContext} from 'react';
+import React, {FC, useEffect} from 'react';
 import {Provider} from 'react-redux';
 import globalStore from '@redux/store/globalStore';
 import StackScreen from '@navigation/StackNavigator/StackNav';
 import compareAppVersion from '@utils/compareAppVersion';
-import {AuthContext, AuthProvider} from '@components/Context/AuthContext';
+import {AuthProvider} from '@components/Context/AuthContext';
 interface IProps {}
 
 /**
@@ -12,12 +12,12 @@ interface IProps {}
  **/
 
 const Entry: FC<IProps> = () => {
+  /* Checking the app version and if it is not the latest version, it will show a popup to update the
+  app. */
   useEffect(() => {
     compareAppVersion();
   }, []);
 
-  const userInfo = useContext(AuthContext);
-  console.log('userInfo', userInfo);
   return (
     <AuthProvider>
       <Provider store={globalStore}>

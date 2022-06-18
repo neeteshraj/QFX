@@ -24,6 +24,7 @@ const MovieDetails: FC<IProps> = ({data}: any) => {
   } = data;
 
   const {
+    parentContainer,
     titleTextContainer,
     titleText,
     miscDetails,
@@ -35,7 +36,7 @@ const MovieDetails: FC<IProps> = ({data}: any) => {
   const url = youtubeParser(mediaPlayerTrailerURL);
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={parentContainer}>
       <View>
         <YoutubePlayer height={300} play={false} videoId={url} />
       </View>
@@ -64,6 +65,11 @@ const MovieDetails: FC<IProps> = ({data}: any) => {
 };
 
 const styles = StyleSheet.create({
+  parentContainer: {
+    backgroundColor: colors.background,
+    width: '100%',
+    height: '100%',
+  },
   titleTextContainer: {
     marginTop: -60,
     marginLeft: 10,

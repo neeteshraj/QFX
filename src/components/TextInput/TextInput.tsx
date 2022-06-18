@@ -16,6 +16,12 @@ interface IProps {
  * @function @Login
  **/
 
+/**
+ * It's a function that takes in a label, icon, keyboardType, value, and props, and returns a view with
+ * an icon, a text input, and a view
+ * @param {any}  - label - The label of the input field
+ * @returns A view with a view with an icon and a view with a text input.
+ */
 const Textinput: FC<IProps> = ({
   label,
   icon,

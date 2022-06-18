@@ -11,6 +11,8 @@ export const AuthProvider = ({children}) => {
   const [isLoading, setIsLoading] = useState(false);
   const loginUrl = `${BaseUrl}connect/token`;
 
+  /* This is a useEffect hook that is called when the component is mounted. It is used to get the
+  access token from the AsyncStorage and set it to the state. */
   useEffect(() => {
     AsyncStorage.getItem('AccessToken')
       .then(token => {
@@ -23,6 +25,8 @@ export const AuthProvider = ({children}) => {
       .catch(error => console.error('Load Error =>', error));
   }, []);
 
+  /* This is a useEffect hook that is called when the component is mounted. It is used to get the
+    access token from the AsyncStorage and set it to the state. */
   useEffect(() => {
     if (access_token) {
       try {
@@ -45,6 +49,11 @@ export const AuthProvider = ({children}) => {
     }
   }, [access_token]);
 
+  /**
+   * It takes in a username and password, and then uses the fetch API to make a POST request to the
+   * loginUrl. The response is then parsed into JSON and the access_token is extracted. The
+   * access_token is then encrypted using the CryptoJS library and stored in the AsyncStorage
+   */
   const login = async logindata => {
     const {username, password} = logindata;
     setIsLoading(true);
@@ -53,6 +62,7 @@ export const AuthProvider = ({children}) => {
     bodyFormData.append('password', password);
     bodyFormData.append('grant_type', 'password');
     bodyFormData.append('client_id', 'self');
+
     try {
       const res = await fetch(loginUrl, {
         method: 'POST',
@@ -72,10 +82,10 @@ export const AuthProvider = ({children}) => {
       await AsyncStorage.setItem('AccessToken', encryptedText);
       setAccess_token(access_token_data);
     } catch (error) {
-      console.log(error);
+      console.log('Error while setting token =>', error);
     }
   };
-
+  console.log('USER INFO =>', userInfo);
   return (
     <AuthContext.Provider
       value={{isLoading, userInfo, login, setAccess_token, setUserInfo}}>

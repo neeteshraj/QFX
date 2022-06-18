@@ -43,6 +43,12 @@ interface IProps {
  * @function @MovieCard
  **/
 
+/**
+ * The MovieCard function is a React functional component that takes in a set of props and returns a
+ * TouchableOpacity component that navigates to the MovieDetailsWrapper screen when pressed
+ * @param  -
+ * @returns A React component that is a function component.
+ */
 const MovieCard: FC<IProps> = ({
   showID,
   title,

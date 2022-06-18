@@ -18,8 +18,10 @@ const compareAppVersion = async () => {
   const details = await axios.get(apiAppVersionUrl);
   const apiAppVersion = details.data.data.version;
 
+  /* Checking if the app is running on iOS or not. */
   if (platform === 'ios') {
     DeviceInfo.isEmulator().then(isEmulator => {
+      /* Checking if the app is running on emulator or not. */
       if (isEmulator) {
         if (apiAppVersion !== appVersion) {
           Alert.alert(
@@ -74,7 +76,9 @@ const compareAppVersion = async () => {
       }
     });
   } else {
+    /* Checking if the app is running on Android or not. */
     DeviceInfo.isEmulator().then(isEmulator => {
+      /* Checking if the app is running on emulator or not. */
       if (isEmulator) {
         if (apiAppVersion !== appVersion) {
           Alert.alert(
