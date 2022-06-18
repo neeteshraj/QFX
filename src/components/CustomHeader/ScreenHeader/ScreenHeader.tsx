@@ -44,6 +44,8 @@ const ScreenHeader: FC<IProps> = () => {
                 ? 'Login'
                 : route.name === 'My Profile'
                 ? 'Profile'
+                : route.name === 'Selection'
+                ? 'Show Selection'
                 : null}
             </Text>
           }

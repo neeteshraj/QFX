@@ -1,8 +1,19 @@
 import React, {FC} from 'react';
-import {View, Text, SafeAreaView, StyleSheet} from 'react-native';
+import {
+  View,
+  Text,
+  SafeAreaView,
+  StyleSheet,
+  TouchableOpacity,
+} from 'react-native';
 import youtubeParser from '@utils/youtubeParser';
 import YoutubePlayer from 'react-native-youtube-iframe';
 import colors from '@assets/styles/colors';
+
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import {useNavigation} from '@react-navigation/native';
+import {RootStackParamList} from '@components/MovieCard/MovieCard';
+import {StackNavigationProp} from '@react-navigation/stack';
 
 interface IProps {}
 
@@ -26,7 +37,12 @@ const MovieDetails: FC<IProps> = ({data}: any) => {
   const {
     parentContainer,
     titleTextContainer,
+    textViewWrapper,
     titleText,
+    ticketIconWrapper,
+    touchable,
+    icon,
+    buyStyle,
     miscDetails,
     miscDetailsText,
     synopsis,
@@ -35,15 +51,32 @@ const MovieDetails: FC<IProps> = ({data}: any) => {
 
   const url = youtubeParser(mediaPlayerTrailerURL);
 
+  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+  const buyReserveTicket = () => {
+    console.log('buyReserveTicket');
+  };
+
   return (
     <SafeAreaView style={parentContainer}>
       <View>
         <YoutubePlayer height={300} play={false} videoId={url} />
       </View>
       <View style={titleTextContainer}>
-        <Text style={titleText}>
-          {title} ( {eventRating} )
-        </Text>
+        <View style={textViewWrapper}>
+          <Text style={titleText}>
+            {title} ({eventRating})
+          </Text>
+        </View>
+        <View style={ticketIconWrapper}>
+          <TouchableOpacity style={touchable} onPress={buyReserveTicket}>
+            <View style={icon}>
+              <FontAwesome name="ticket" size={22} color={colors.primary} />
+            </View>
+            <View>
+              <Text style={buyStyle}>BUY/RESERVE TICKET</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
       </View>
       <View style={miscDetails}>
         <Text style={miscDetailsText}>Genre: {genre ? genre : 'N/A'}</Text>
@@ -74,10 +107,37 @@ const styles = StyleSheet.create({
     marginTop: -60,
     marginLeft: 10,
     marginBottom: 20,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  textViewWrapper: {
+    width: '60%',
+    flexDirection: 'row',
   },
   titleText: {
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: '500',
+    color: colors.primary,
+  },
+  ticketIconWrapper: {
+    width: '40%',
+  },
+  touchable: {
+    flexDirection: 'row',
+  },
+  icon: {
+    padding: 8,
+    height: 40,
+    width: 40,
+    borderRadius: 50,
+    borderWidth: 1,
+    backgroundColor: colors.offWhite,
+  },
+  buyStyle: {
+    fontSize: 9,
+    fontWeight: '500',
+    paddingTop: 15,
+    paddingLeft: 5,
     color: colors.primary,
   },
   miscDetails: {

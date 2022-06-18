@@ -22,6 +22,7 @@ export type RootStackParamList = {
     mediaPlayerTrailerURL: string;
     annotation: string;
     showLengthInMinutes: number;
+    companyId: number;
   };
 };
 
@@ -36,6 +37,7 @@ interface IProps {
   showLengthInMinutes: number;
   director: string;
   cast: string;
+  companyId: number;
 }
 
 /**
@@ -59,6 +61,7 @@ const MovieCard: FC<IProps> = ({
   annotation,
   showLengthInMinutes,
   director,
+  companyId,
   cast,
 }) => {
   const {container, image, movieTitle, rating} = styles;
@@ -77,6 +80,7 @@ const MovieCard: FC<IProps> = ({
       director,
       cast,
       genre,
+      companyId,
     });
   };
 
@@ -98,25 +102,22 @@ const styles = StyleSheet.create({
   },
   image: {
     flex: 1,
-    width: 180,
-    height: 250,
+    width: 170,
+    height: 200,
   },
   movieTitle: {
-    flex: 1,
-    marginTop: 10,
+    marginTop: 5,
     fontSize: 15,
-    fontWeight: 'bold',
+    fontWeight: '500',
     flexDirection: 'row',
-    margin: 5,
     color: colors.primary,
   },
   rating: {
-    flex: 1,
-    marginTop: 10,
+    marginRight: 15,
+    marginTop: 5,
     fontSize: 15,
-    fontWeight: 'bold',
+    fontWeight: '500',
     flexDirection: 'row',
-    margin: 5,
     color: colors.primary,
   },
 });

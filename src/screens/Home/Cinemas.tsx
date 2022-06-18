@@ -31,6 +31,7 @@ const Cinemas: FC<IProps> = () => {
     <SafeAreaView style={parentContainer}>
       <View style={container}>
         <FlatList
+          showsVerticalScrollIndicator={false}
           style={flatList}
           data={cinemas}
           keyExtractor={(show, index) => 'key' + index}
@@ -48,8 +49,8 @@ const Cinemas: FC<IProps> = () => {
                   renderItem={(movies: any) => {
                     return (
                       <MovieCard
-                        id={movies.item.eventId}
-                        companyId={movies.item.theatreId}
+                        showID={movies.item.showID}
+                        companyId={movies.item.companyId}
                         urlToImage={`${BaseUrl}${movies.item.thumbnailUrl}`}
                         title={movies.item.name}
                         eventRating={movies.item.eventRating}
@@ -58,6 +59,7 @@ const Cinemas: FC<IProps> = () => {
                         genre={movies.item.genre}
                         director={movies.item.director}
                         cast={movies.item.cast}
+                        showLengthInMinutes={movies.item.showLengthInMinutes}
                       />
                     );
                   }}

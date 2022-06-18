@@ -4,6 +4,7 @@ import {NavigationContainer} from '@react-navigation/native';
 
 import EntryNavigation from '@navigation/EntryNav';
 import MovieDetailsWrapper from '@components/Wrappers/MovieDetails/MovieDetailsWrapper';
+import SelectionWrapper from '@components/Wrappers/ShowSelectionWrapper/ShowSelectionWrapper';
 
 interface IProps {}
 
@@ -22,6 +23,7 @@ const StackScreen: FC<IProps> = () => {
           name="MovieDetailsWrapper"
           component={MovieDetailsWrapper}
         />
+        <Stack.Screen name="Selection" component={SelectionWrapper} />
       </Stack.Navigator>
     </NavigationContainer>
   );

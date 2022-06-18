@@ -41,7 +41,6 @@ const Profile: FC<IProps> = () => {
     location,
   };
   const qrDataString = JSON.stringify(qrData);
-  console.log(qrDataString);
   const handleEdit = () => {
     Alert.alert('Edit Profile Button Clicked');
   };

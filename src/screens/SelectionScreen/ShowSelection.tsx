@@ -1,3 +1,4 @@
+import colors from '@assets/styles/colors';
 import React, {FC} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
@@ -12,7 +13,7 @@ const ShowSelection: FC<IProps> = () => {
   const {container} = styles;
   return (
     <View style={container}>
-      <Text>ShowSelection</Text>
+      <Text style={{color: colors.primary}}>ShowSelection</Text>
     </View>
   );
 };

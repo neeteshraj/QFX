@@ -28,6 +28,7 @@ const ComingSoon: FC<IProps> = () => {
     <SafeAreaView style={parentContainer}>
       <View style={container}>
         <FlatList
+          showsVerticalScrollIndicator={false}
           style={flatList}
           data={comingSoon}
           keyExtractor={(show, index) => 'key' + index}
@@ -45,6 +46,7 @@ const ComingSoon: FC<IProps> = () => {
                 director={show.item.director}
                 cast={show.item.cast}
                 genre={show.item.genre}
+                companyId={show.item?.companyId}
               />
             );
           }}
