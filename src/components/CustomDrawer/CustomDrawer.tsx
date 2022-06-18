@@ -1,4 +1,4 @@
-import React, {FC, useState} from 'react';
+import React, {FC, useContext} from 'react';
 import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
 import {
   DrawerContentScrollView,
@@ -9,6 +9,8 @@ import Logo from '@assets/images/headerLogo.png';
 import colors from '@assets/styles/colors';
 
 import AntIcon from 'react-native-vector-icons/AntDesign';
+import {AuthContext} from '@components/Context/AuthContext';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 interface IProps {}
 
@@ -18,9 +20,7 @@ interface IProps {}
  **/
 
 const CustomDrawer: FC<IProps> = (props: any) => {
-  const [loggedIn, setLoggedIn] = useState(false);
-  // const [loggedIn] = useState(false);
-
+  const {userInfo, setAccess_token, setUserInfo} = useContext(AuthContext);
   const {
     container,
     logo,
@@ -34,14 +34,16 @@ const CustomDrawer: FC<IProps> = (props: any) => {
   } = styles;
 
   const logoutHandler = () => {
-    setLoggedIn(false);
+    setAccess_token('');
+    setUserInfo(null);
+    AsyncStorage.removeItem('AccessToken');
   };
   return (
     <View style={container}>
       <DrawerContentScrollView {...props}>
-        {loggedIn ? (
+        {userInfo ? (
           <View style={logoContainer}>
-            <Text style={text}>Nitesh Raj Khanal</Text>
+            <Text style={text}>{userInfo?.data?.name}</Text>
           </View>
         ) : (
           <View style={logoContainer}>
@@ -51,7 +53,7 @@ const CustomDrawer: FC<IProps> = (props: any) => {
         <View style={drawerItems}>
           <DrawerItemList {...props} />
         </View>
-        {loggedIn ? (
+        {userInfo ? (
           <TouchableOpacity style={logout} onPress={logoutHandler}>
             <View style={iconContainer}>
               <AntIcon name="logout" size={22} style={logoutIcon} />
@@ -67,12 +69,12 @@ const CustomDrawer: FC<IProps> = (props: any) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.gray,
+    backgroundColor: colors.drawerNavBackground,
     height: '100%',
   },
   logoContainer: {
     height: 100,
-    backgroundColor: colors.darkGray,
+    backgroundColor: colors.logoBackground,
   },
   logo: {
     marginTop: 5,
@@ -87,6 +89,7 @@ const styles = StyleSheet.create({
   },
   drawerItems: {
     flex: 1,
+    paddingTop: 10,
   },
   logout: {
     flexDirection: 'row',

@@ -1,4 +1,4 @@
-import React, {FC, useState} from 'react';
+import React, {FC, useContext, useState} from 'react';
 import {View, StyleSheet} from 'react-native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import colors from '@assets/styles/colors';
@@ -10,6 +10,7 @@ import Profile from '@screens/Profile/Profile';
 import EntypoIcon from 'react-native-vector-icons/Entypo';
 import AntIcon from 'react-native-vector-icons/AntDesign';
 import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import {AuthContext} from '@components/Context/AuthContext';
 
 interface IProps {}
 
@@ -22,6 +23,9 @@ const Drawer = createDrawerNavigator();
 
 const DrawerNavigator: FC<IProps> = () => {
   // const [loggedIn, setLoggedIn] = useState(true);
+
+  const {userInfo} = useContext(AuthContext);
+  console.log('User Info =>', userInfo);
   const [loggedIn] = useState(false);
   const {iconContainer, icon} = styles;
   return (
@@ -47,7 +51,7 @@ const DrawerNavigator: FC<IProps> = () => {
           ),
         }}
       />
-      {loggedIn ? null : (
+      {userInfo ? null : (
         <Drawer.Screen
           name="Login"
           component={LoginWrapper}
@@ -60,7 +64,7 @@ const DrawerNavigator: FC<IProps> = () => {
           }}
         />
       )}
-      {loggedIn ? (
+      {userInfo ? (
         <Drawer.Screen
           name="My Profile"
           component={Profile}

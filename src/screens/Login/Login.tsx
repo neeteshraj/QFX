@@ -35,10 +35,9 @@ const Login: FC<IProps> = () => {
     password: '',
   });
   const {isLoading, login} = useContext(AuthContext);
-
   return (
     <SafeAreaView style={container}>
-      <Spinner visible={isLoading} />
+      {/* <Spinner visible={isLoading} /> */}
       <View style={imageContainer}>
         <Image source={HeaderImage} style={headerImage} />
       </View>
