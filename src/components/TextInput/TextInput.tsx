@@ -23,6 +23,7 @@ const Textinput: FC<IProps> = ({label, icon, keyboardType, ...props}: any) => {
       <View style={inputFieldContainer}>
         <TextInput
           placeholder={label}
+          placeholderTextColor={colors.darkGray}
           keyboardType={keyboardType}
           style={inputField}
           {...props}
