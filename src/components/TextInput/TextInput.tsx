@@ -54,6 +54,7 @@ const styles = StyleSheet.create({
     marginRight: '10%',
   },
   inputField: {
+    paddingLeft: 35,
     marginTop: 5,
     height: 40,
     backgroundColor: colors.gray,

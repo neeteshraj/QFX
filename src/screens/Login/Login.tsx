@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
   },
   iconContainer: {
     backgroundColor: colors.gray,
-    borderWidth: 1,
+    borderWidth: 0.5,
     height: 55,
     width: 55,
     borderRadius: 50,
