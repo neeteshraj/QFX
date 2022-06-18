@@ -16,10 +16,16 @@ interface IProps {}
  * @function @CustomHeader
  **/
 
-const CustomHeader: FC<IProps> = (props:any) => {
+const CustomHeader: FC<IProps> = (props: any) => {
   const navigation = useNavigation();
-  const {headerContainer, headerTopLeft, logoContainer, logo, headerTopRight} =
-    styles;
+  const {
+    headerContainer,
+    headerTopLeft,
+    logoContainer,
+    logo,
+    headerTopRight,
+    icon,
+  } = styles;
   return (
     <SafeAreaView>
       <Surface style={headerContainer}>
@@ -36,7 +42,9 @@ const CustomHeader: FC<IProps> = (props:any) => {
         <View style={headerTopRight}>
           {
             <TouchableOpacity>
-              <Icon name="location-pin" size={24} color={colors.iconColor} />
+              <View style={icon}>
+                <Icon name="location-pin" size={24} color={colors.iconColor} />
+              </View>
             </TouchableOpacity>
           }
         </View>
@@ -63,10 +71,8 @@ const styles = StyleSheet.create({
   },
   logoContainer: {
     flex: 1,
-    margin: 10,
-    marginRight: 260,
+    marginRight: 230,
     alignItems: 'center',
-    flexDirection: 'row',
   },
   logo: {
     width: 60,
@@ -74,10 +80,12 @@ const styles = StyleSheet.create({
   },
   headerTopRight: {
     flex: 1,
-    margin: 10,
     justifyContent: 'flex-end',
     alignItems: 'center',
     flexDirection: 'row',
+  },
+  icon: {
+    marginRight: 15,
   },
 });
 

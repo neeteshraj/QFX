@@ -1,5 +1,5 @@
-import React, {FC, useState} from 'react';
-import {View, SafeAreaView, StyleSheet, Alert, Image} from 'react-native';
+import React, {FC, useState, useContext} from 'react';
+import {View, SafeAreaView, StyleSheet, Image} from 'react-native';
 
 import FeatherIcon from 'react-native-vector-icons/Feather';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -10,6 +10,10 @@ import CustomInput from '@components/TextInput/TextInput';
 import HeaderImage from '@assets/images/loginHeader.png';
 import colors from '@assets/styles/colors';
 
+import {AuthContext} from '@components/Context/AuthContext';
+import Spinner from 'react-native-loading-spinner-overlay/lib';
+
+import {HEIGHT} from '@utils/Dimensions';
 interface IProps {}
 
 /**
@@ -27,17 +31,21 @@ const Login: FC<IProps> = () => {
     icon,
   } = styles;
   const [data, setData] = useState({
-    email: '',
+    username: '',
     password: '',
   });
+  const {isLoading, login} = useContext(AuthContext);
+
   return (
     <SafeAreaView style={container}>
+      <Spinner visible={isLoading} />
       <View style={imageContainer}>
         <Image source={HeaderImage} style={headerImage} />
       </View>
       <View style={inputWrapper}>
         <CustomInput
           label={'Email/Mobile Number'}
+          value={data.username}
           icon={
             <View style={iconContainer}>
               <FeatherIcon
@@ -49,11 +57,12 @@ const Login: FC<IProps> = () => {
             </View>
           }
           keyboardType={'email-address'}
-          onChangeText={text => setData({...data, email: text})}
+          onChangeText={text => setData({...data, username: text})}
         />
         <CustomInput
           label={'Password'}
           secureTextEntry
+          value={data.password}
           icon={
             <View style={iconContainer}>
               <Ionicons
@@ -71,7 +80,7 @@ const Login: FC<IProps> = () => {
       <CustomButton
         label={'LOGIN'}
         onPress={() => {
-          Alert.alert('Login Successful');
+          login(data);
         }}
       />
     </SafeAreaView>
@@ -80,18 +89,15 @@ const Login: FC<IProps> = () => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: 25,
-    justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: colors.darkGray,
     height: '100%',
   },
   imageContainer: {
-    marginBottom: 30,
-    marginTop: -350,
+    marginTop: HEIGHT * 0.1,
     width: 100,
     height: 100,
-    justifyContent: 'center',
+    flexDirection: 'row',
     alignItems: 'center',
   },
   headerImage: {

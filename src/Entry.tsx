@@ -3,6 +3,7 @@ import {Provider} from 'react-redux';
 import globalStore from '@redux/store/globalStore';
 import StackScreen from '@navigation/StackNavigator/StackNav';
 import compareAppVersion from '@utils/compareAppVersion';
+import {AuthProvider} from '@components/Context/AuthContext';
 interface IProps {}
 
 /**
@@ -16,9 +17,11 @@ const Entry: FC<IProps> = () => {
   }, []);
 
   return (
-    <Provider store={globalStore}>
-      <StackScreen />
-    </Provider>
+    <AuthProvider>
+      <Provider store={globalStore}>
+        <StackScreen />
+      </Provider>
+    </AuthProvider>
   );
 };
 

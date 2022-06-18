@@ -4,6 +4,7 @@ import {View, TextInput, StyleSheet} from 'react-native';
 
 interface IProps {
   label: string;
+  value: string;
   icon: JSX.Element;
   keyboardType?: string;
   onChangeText: (text: string) => void;
@@ -15,7 +16,13 @@ interface IProps {
  * @function @Login
  **/
 
-const Textinput: FC<IProps> = ({label, icon, keyboardType, ...props}: any) => {
+const Textinput: FC<IProps> = ({
+  label,
+  icon,
+  keyboardType,
+  value,
+  ...props
+}: any) => {
   const {container, inputField, iconContainer, inputFieldContainer} = styles;
   return (
     <View style={container}>
@@ -23,6 +30,7 @@ const Textinput: FC<IProps> = ({label, icon, keyboardType, ...props}: any) => {
       <View style={inputFieldContainer}>
         <TextInput
           placeholder={label}
+          value={value}
           placeholderTextColor={colors.darkGray}
           keyboardType={keyboardType}
           style={inputField}
@@ -59,6 +67,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
     height: 40,
     backgroundColor: colors.gray,
+    color: colors.primary,
   },
 });
 

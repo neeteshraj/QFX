@@ -11,6 +11,7 @@
     "add-splash": "yarn react-native generate-bootsplash assets/bootsplash_logo_original.png --background-color=000000 --logo-width=100 --assets-path=assets --flavor=main"
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "^1.17.6",
     "@react-navigation/drawer": "^6.4.1",
     "@react-navigation/material-top-tabs": "^6.2.1",
     "@react-navigation/native": "^6.0.10",
@@ -26,6 +27,7 @@
     "react-native-dotenv": "^3.3.1",
     "react-native-exit-app": "^1.1.0",
     "react-native-gesture-handler": "^2.4.2",
+    "react-native-loading-spinner-overlay": "^3.0.0",
     "react-native-pager-view": "^5.4.24",
     "react-native-paper": "^4.12.1",
     "react-native-reanimated": "^2.8.0",
