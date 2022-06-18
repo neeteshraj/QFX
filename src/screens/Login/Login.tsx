@@ -11,8 +11,8 @@ import HeaderImage from '@assets/images/loginHeader.png';
 import colors from '@assets/styles/colors';
 
 import {AuthContext} from '@components/Context/AuthContext';
-import Spinner from 'react-native-loading-spinner-overlay/lib';
 
+import Spinner from 'react-native-loading-spinner-overlay';
 import {HEIGHT} from '@utils/Dimensions';
 interface IProps {}
 
@@ -37,7 +37,7 @@ const Login: FC<IProps> = () => {
   const {isLoading, login} = useContext(AuthContext);
   return (
     <SafeAreaView style={container}>
-      {/* <Spinner visible={isLoading} /> */}
+      <Spinner visible={isLoading} />
       <View style={imageContainer}>
         <Image source={HeaderImage} style={headerImage} />
       </View>

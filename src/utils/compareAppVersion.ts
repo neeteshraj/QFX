@@ -26,7 +26,7 @@ const compareAppVersion = async () => {
         if (apiAppVersion !== appVersion) {
           Alert.alert(
             'Update Available',
-            'Please update the app to the latest version',
+            `Your app version is ${appVersion}. New version ${apiAppVersion} is available. Please update to the latest version.`,
             [
               {
                 text: 'Cancel',
@@ -52,7 +52,7 @@ const compareAppVersion = async () => {
         if (apiAppVersion !== appVersion) {
           Alert.alert(
             'Update Available',
-            'Please update the app to the latest version',
+            `Your app version is ${appVersion}. New version ${apiAppVersion} is available. Please update to the latest version.`,
             [
               {
                 text: 'Cancel',
@@ -83,7 +83,7 @@ const compareAppVersion = async () => {
         if (apiAppVersion !== appVersion) {
           Alert.alert(
             'Update Available',
-            'Please update the app to the latest version',
+            `Your app version is ${appVersion}. New version ${apiAppVersion} is available. Please update to the latest version.`,
             [
               {
                 text: 'Cancel',
@@ -109,7 +109,7 @@ const compareAppVersion = async () => {
         if (apiAppVersion !== appVersion) {
           Alert.alert(
             'Update Available',
-            'Please update the app to the latest version',
+            `Your app version is ${appVersion}. New version ${apiAppVersion} is available. Please update to the latest version.`,
             [
               {
                 text: 'Cancel',

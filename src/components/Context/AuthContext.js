@@ -85,7 +85,6 @@ export const AuthProvider = ({children}) => {
       console.log('Error while setting token =>', error);
     }
   };
-  console.log('USER INFO =>', userInfo);
   return (
     <AuthContext.Provider
       value={{isLoading, userInfo, login, setAccess_token, setUserInfo}}>
