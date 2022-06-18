@@ -74,6 +74,7 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   logoContainer: {
+    marginTop: -4,
     height: 100,
     backgroundColor: colors.logoBackground,
   },
@@ -86,7 +87,8 @@ const styles = StyleSheet.create({
     color: colors.primary,
     fontSize: 25,
     textAlign: 'center',
-    paddingTop: 37,
+    paddingTop: 35,
+    letterSpacing: 2,
   },
   drawerItems: {
     flex: 1,
