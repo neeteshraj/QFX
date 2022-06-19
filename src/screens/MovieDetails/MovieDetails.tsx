@@ -38,6 +38,7 @@ const MovieDetails: FC<IProps> = ({data}: any) => {
     cast,
     genre,
     director,
+    theatreID,
   } = data;
 
   const {
@@ -59,9 +60,10 @@ const MovieDetails: FC<IProps> = ({data}: any) => {
 
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
   const buyReserveTicket = () => {
-    console.log('buyReserveTicket clicked');
     userInfo
-      ? navigation.navigate('Selection', {})
+      ? navigation.navigate('Selection', {
+          data,
+        })
       : navigation.navigate('Login', {});
   };
 
@@ -76,16 +78,18 @@ const MovieDetails: FC<IProps> = ({data}: any) => {
             {title} ({eventRating})
           </Text>
         </View>
-        <View style={ticketIconWrapper}>
-          <TouchableOpacity style={touchable} onPress={buyReserveTicket}>
-            <View style={icon}>
-              <FontAwesome name="ticket" size={22} color={colors.primary} />
-            </View>
-            <View>
-              <Text style={buyStyle}>BUY/RESERVE TICKET</Text>
-            </View>
-          </TouchableOpacity>
-        </View>
+        {theatreID ? (
+          <View style={ticketIconWrapper}>
+            <TouchableOpacity style={touchable} onPress={buyReserveTicket}>
+              <View style={icon}>
+                <FontAwesome name="ticket" size={22} color={colors.primary} />
+              </View>
+              <View>
+                <Text style={buyStyle}>BUY/RESERVE TICKET</Text>
+              </View>
+            </TouchableOpacity>
+          </View>
+        ) : null}
       </View>
       <View style={miscDetails}>
         <Text style={miscDetailsText}>Genre: {genre ? genre : 'N/A'}</Text>

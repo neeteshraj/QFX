@@ -19,6 +19,7 @@
     "@react-navigation/stack": "^6.2.1",
     "axios": "^0.27.2",
     "babel-plugin-module-resolver": "^4.1.0",
+    "datejs": "^1.0.0-rc3",
     "native-base": "^3.4.6",
     "querystring": "^0.2.1",
     "react": "17.0.2",

@@ -60,6 +60,12 @@ const Cinemas: FC<IProps> = () => {
                         director={movies.item.director}
                         cast={movies.item.cast}
                         showLengthInMinutes={movies.item.showLengthInMinutes}
+                        theatreName={movies.item.theatreName}
+                        city={movies.item.city}
+                        showDate={movies.item.showDate}
+                        theatreID={movies.item.theatreID}
+                        eventID={movies.item.eventID}
+                        dtLocalRelease={movies.item?.dtLocalRelease}
                       />
                     );
                   }}

@@ -4,6 +4,7 @@ import upcomingReducer from './upcomingReducer';
 import cinemaReducers from './cinemaReducers';
 import movieDetails from './movieDetailsReducer';
 import appVersion from './appVersionReducers';
+import selectionReducers from './selectionReducers';
 
 export default combineReducers({
   nowShowing: nowShowingReducer,
@@ -11,4 +12,5 @@ export default combineReducers({
   cinema: cinemaReducers,
   movieDetails: movieDetails,
   appVersion: appVersion,
+  selection: selectionReducers,
 });

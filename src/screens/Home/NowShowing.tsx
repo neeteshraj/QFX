@@ -40,13 +40,19 @@ const NowShowing: FC<IProps> = () => {
                 title={show.item.name}
                 eventRating={show.item.eventRating}
                 showID={show.item.showID}
+                eventID={show.item.eventID}
                 mediaPlayerTrailerURL={show.item?.mediaURL}
                 annotation={show.item.annotation}
                 showLengthInMinutes={show.item.showLengthInMinutes}
                 director={show.item.director}
                 cast={show.item.cast}
                 genre={show.item.genre}
-                companyId={show.item.theatreID}
+                companyId={show.item.companyId}
+                theatreID={show.item.theatreID}
+                showDate={show.item.showDate}
+                theatreName={show.item.theatreName}
+                city={show.item?.city}
+                dtLocalRelease={show.item?.dtLocalRelease}
               />
             );
           }}

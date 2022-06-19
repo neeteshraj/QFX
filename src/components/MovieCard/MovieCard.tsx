@@ -23,6 +23,12 @@ export type RootStackParamList = {
     annotation: string;
     showLengthInMinutes: number;
     companyId: number;
+    theatreName: string;
+    city: string;
+    theatreID: number;
+    showDate: string;
+    eventID: number;
+    dtLocalRelease: string;
   };
 };
 
@@ -38,6 +44,12 @@ interface IProps {
   director: string;
   cast: string;
   companyId: number;
+  theatreName: string;
+  city: string;
+  theatreID: number;
+  showDate: string;
+  eventID: number;
+  dtLocalRelease: string;
 }
 
 /**
@@ -62,10 +74,15 @@ const MovieCard: FC<IProps> = ({
   showLengthInMinutes,
   director,
   companyId,
+  theatreName,
+  city,
   cast,
+  theatreID,
+  showDate,
+  eventID,
+  dtLocalRelease,
 }) => {
-  const {container, image, movieTitle, rating} = styles;
-
+  const {container, image, movieTitle, rating, release} = styles;
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
   const handleOnPress = () => {
     return navigation.navigate('MovieDetailsWrapper', {
@@ -80,6 +97,12 @@ const MovieCard: FC<IProps> = ({
       cast,
       genre,
       companyId,
+      theatreName,
+      city,
+      theatreID,
+      showDate,
+      eventID,
+      dtLocalRelease,
     });
   };
   return (
@@ -88,6 +111,7 @@ const MovieCard: FC<IProps> = ({
         <Image style={image} source={{uri: urlToImage}} />
         <Text style={movieTitle}>{title}</Text>
         <Text style={rating}>({eventRating})</Text>
+        <Text style={release}>{dtLocalRelease}</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );
@@ -117,6 +141,12 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     flexDirection: 'row',
     color: colors.primary,
+  },
+  release: {
+    marginTop: 5,
+    fontSize: 15,
+    fontWeight: '500',
+    flexDirection: 'row',
   },
 });
 

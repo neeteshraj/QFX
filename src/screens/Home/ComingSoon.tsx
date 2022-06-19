@@ -24,6 +24,16 @@ const ComingSoon: FC<IProps> = () => {
   useEffect(() => {
     dispatch(requestUpcoming());
   }, [dispatch]);
+  const releaseDate = comingSoon.map((item: any) => {
+    return item.dtLocalRelease;
+  });
+
+  let date = new Date(releaseDate);
+  let day = date.getDate();
+  let month = date.getMonth() + 1;
+  let year = date.getFullYear();
+  let formattedDate = `${year}-${month}-${day}`;
+
   return (
     <SafeAreaView style={parentContainer}>
       <View style={container}>
@@ -47,6 +57,12 @@ const ComingSoon: FC<IProps> = () => {
                 cast={show.item.cast}
                 genre={show.item.genre}
                 companyId={show.item?.companyId}
+                theatreName={show.item?.theatreName}
+                city={show.item?.city}
+                theatreID={show.item?.theatreID}
+                showDate={show.item?.showDate}
+                eventID={show.item?.eventID}
+                dtLocalRelease={formattedDate}
               />
             );
           }}
