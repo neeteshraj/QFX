@@ -67,7 +67,6 @@ const MovieCard: FC<IProps> = ({
   const {container, image, movieTitle, rating} = styles;
 
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
-
   const handleOnPress = () => {
     return navigation.navigate('MovieDetailsWrapper', {
       showID,
@@ -83,7 +82,6 @@ const MovieCard: FC<IProps> = ({
       companyId,
     });
   };
-
   return (
     <SafeAreaView style={container}>
       <TouchableOpacity onPress={handleOnPress}>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {FC} from 'react';
 import MovieDetails from '@screens/MovieDetails/MovieDetails';
 import CustomHeader from '@components/HigherOrderComponent/HOCScreen';
 
@@ -7,11 +7,17 @@ import CustomHeader from '@components/HigherOrderComponent/HOCScreen';
  * @function @MovieDetailsWrapper
  **/
 
-const MovieDetailsWrapper = (props: any) => {
+interface IProps {
+  data: any;
+  children: any;
+  Selection: any;
+}
+
+const MovieDetailsWrapper: FC<IProps> = (props: any) => {
   return (
     <>
       <CustomHeader>
-        <MovieDetails data={props.route.params} />
+        <MovieDetails data={props.route.params} children={undefined} />
       </CustomHeader>
     </>
   );

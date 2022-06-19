@@ -46,7 +46,7 @@ const NowShowing: FC<IProps> = () => {
                 director={show.item.director}
                 cast={show.item.cast}
                 genre={show.item.genre}
-                companyId={show.item.companyId}
+                companyId={show.item.theatreID}
               />
             );
           }}

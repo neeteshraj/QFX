@@ -2,22 +2,18 @@ import colors from '@assets/styles/colors';
 import React, {FC} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
-interface IProps {
-  data: any;
-  children: any;
-}
+interface IProps {}
 
 /**
  * @author Nitesh Raj Khanal
- * @function @ShowSelection
+ * @function @Contact
  **/
 
-const ShowSelection: FC<IProps> = ({data}: any) => {
-  console.log('Data in SELECTION =>', data);
-  const {container} = styles;
+const Contact: FC<IProps> = () => {
+  const {container, text} = styles;
   return (
     <View style={container}>
-      <Text style={{color: colors.primary}}>ShowSelection</Text>
+      <Text style={text}>Contact</Text>
     </View>
   );
 };
@@ -28,6 +24,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  text: {
+    color: colors.primary,
+  },
 });
 
-export default ShowSelection;
+export default Contact;

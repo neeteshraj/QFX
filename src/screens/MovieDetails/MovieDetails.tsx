@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, useContext} from 'react';
 import {
   View,
   Text,
@@ -15,7 +15,12 @@ import {useNavigation} from '@react-navigation/native';
 import {RootStackParamList} from '@components/MovieCard/MovieCard';
 import {StackNavigationProp} from '@react-navigation/stack';
 
-interface IProps {}
+import {AuthContext} from '@components/Context/AuthContext';
+
+interface IProps {
+  data: any;
+  children: any;
+}
 
 /**
  * @author Nitesh Raj Khanal
@@ -23,6 +28,7 @@ interface IProps {}
  **/
 
 const MovieDetails: FC<IProps> = ({data}: any) => {
+  const {userInfo} = useContext(AuthContext);
   const {
     title,
     annotation,
@@ -53,7 +59,10 @@ const MovieDetails: FC<IProps> = ({data}: any) => {
 
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
   const buyReserveTicket = () => {
-    console.log('buyReserveTicket');
+    console.log('buyReserveTicket clicked');
+    userInfo
+      ? navigation.navigate('Selection', {})
+      : navigation.navigate('Login', {});
   };
 
   return (

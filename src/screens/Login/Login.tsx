@@ -1,19 +1,17 @@
 import React, {FC, useState, useContext} from 'react';
 import {View, SafeAreaView, StyleSheet, Image} from 'react-native';
+import Spinner from 'react-native-loading-spinner-overlay';
 
 import FeatherIcon from 'react-native-vector-icons/Feather';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
+import {AuthContext} from '@components/Context/AuthContext';
 import CustomButton from '@components/CustomButton/CustomButton';
 import CustomInput from '@components/TextInput/TextInput';
-
+import {HEIGHT} from '@utils/Dimensions';
 import HeaderImage from '@assets/images/loginHeader.png';
 import colors from '@assets/styles/colors';
 
-import {AuthContext} from '@components/Context/AuthContext';
-
-import Spinner from 'react-native-loading-spinner-overlay';
-import {HEIGHT} from '@utils/Dimensions';
 interface IProps {}
 
 /**
@@ -34,7 +32,8 @@ const Login: FC<IProps> = () => {
     username: '',
     password: '',
   });
-  const {isLoading, login} = useContext(AuthContext);
+  const [isLoading, setIsLoading] = useState(false);
+  const {login} = useContext(AuthContext);
   return (
     <SafeAreaView style={container}>
       <Spinner visible={isLoading} />
@@ -79,7 +78,10 @@ const Login: FC<IProps> = () => {
       <CustomButton
         label={'LOGIN'}
         onPress={() => {
-          login(data);
+          setTimeout(() => {
+            setIsLoading(true);
+            login(data);
+          }, 1000);
         }}
       />
     </SafeAreaView>

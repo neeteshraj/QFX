@@ -1,19 +1,24 @@
-import React, {useMemo} from 'react';
-import ShowSelection from '@screens/SelectionScreen/ShowSelection';
-import CustomHeader from '@components/HigherOrderComponent/HOCScreens';
+import React, {FC} from 'react';
+import Selection from '@screens/SelectionScreen/ShowSelection';
+import CustomHeader from '@components/HigherOrderComponent/HOCSelection';
 
 /**
  * @author Nitesh Raj Khanal
- * @function @LoginWrapper
+ * @function @SelectionWrapper
  **/
 
-const SelectionWrapper = () => {
-  const SelectionHeader = useMemo(() => {
-    return CustomHeader(ShowSelection);
-  }, []);
+interface IProps {
+  data: any;
+  children: any;
+}
+
+const SelectionWrapper: FC<IProps> = (props: any) => {
+  console.log('Daaataaaa =>', props);
   return (
     <>
-      <SelectionHeader />
+      <CustomHeader>
+        <Selection data={props.route.params} children={props.children} />
+      </CustomHeader>
     </>
   );
 };
