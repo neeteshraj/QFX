@@ -19,6 +19,7 @@ target 'QFX' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
+
   target 'QFXTests' do
     inherit! :complete
     # Pods for testing
