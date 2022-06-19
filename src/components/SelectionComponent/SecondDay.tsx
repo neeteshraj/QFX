@@ -3,14 +3,12 @@ import React, {FC} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
 interface IProps {
-  data: any;
-  children: any;
   propName: any;
 }
 
 /**
  * @author Nitesh Raj Khanal
- * @function @FirstDay
+ * @function @SecondDay
  **/
 
 const SecondDay: FC<IProps> = ({propName}) => {
@@ -102,10 +100,12 @@ const styles = StyleSheet.create({
   showTime: {
     fontSize: 18,
     textAlign: 'center',
+    color: colors.primary,
   },
   showHrs: {
     fontSize: 14,
     textAlign: 'center',
+    color: colors.primary,
   },
 });
 

@@ -3,8 +3,6 @@ import React, {FC} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
 interface IProps {
-  data: any;
-  children: any;
   propName: any;
 }
 
@@ -102,10 +100,12 @@ const styles = StyleSheet.create({
   showTime: {
     fontSize: 18,
     textAlign: 'center',
+    color: colors.primary,
   },
   showHrs: {
     fontSize: 14,
     textAlign: 'center',
+    color: colors.primary,
   },
 });
 

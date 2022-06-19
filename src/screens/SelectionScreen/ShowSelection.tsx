@@ -44,21 +44,15 @@ const ShowSelection: FC<IProps> = ({data}: any) => {
         }}>
         <MaterialTab.Screen
           name="Today"
-          children={() => (
-            <FirstDay propName={data}  />
-          )}
+          children={() => <FirstDay propName={data} />}
         />
         <MaterialTab.Screen
           name="Tomorrow"
-          children={() => (
-            <SecondDay propName={data}  />
-          )}
+          children={() => <SecondDay propName={data} />}
         />
         <MaterialTab.Screen
           name={Day}
-          children={() => (
-            <ThirdDay propName={data} />
-          )}
+          children={() => <ThirdDay propName={data} />}
         />
       </MaterialTab.Navigator>
     </SafeAreaView>
