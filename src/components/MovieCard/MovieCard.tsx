@@ -3,6 +3,7 @@ import {
   Text,
   StyleSheet,
   SafeAreaView,
+  View,
   TouchableOpacity,
   Image,
 } from 'react-native';
@@ -82,7 +83,15 @@ const MovieCard: FC<IProps> = ({
   eventID,
   dtLocalRelease,
 }) => {
-  const {container, image, movieTitle, rating, release} = styles;
+  const {
+    container,
+    image,
+    movieTitle,
+    rating,
+    release,
+    imageContainer,
+    movieInfo,
+  } = styles;
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
   const handleOnPress = () => {
     return navigation.navigate('MovieDetailsWrapper', {
@@ -108,10 +117,14 @@ const MovieCard: FC<IProps> = ({
   return (
     <SafeAreaView style={container}>
       <TouchableOpacity onPress={handleOnPress}>
-        <Image style={image} source={{uri: urlToImage}} />
-        <Text style={movieTitle}>{title}</Text>
-        <Text style={rating}>({eventRating})</Text>
-        <Text style={release}>{dtLocalRelease}</Text>
+        <View style={imageContainer}>
+          <Image style={image} source={{uri: urlToImage}} />
+        </View>
+        <View style={movieInfo}>
+          <Text style={movieTitle}>{title}</Text>
+          <Text style={rating}>({eventRating})</Text>
+          <Text style={release}>{dtLocalRelease}</Text>
+        </View>
       </TouchableOpacity>
     </SafeAreaView>
   );
@@ -120,19 +133,28 @@ const MovieCard: FC<IProps> = ({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    margin: 10,
+    marginTop: 10,
+  },
+  imageContainer: {
+    flex: 1,
+    height: 200,
+    marginLeft: 10,
   },
   image: {
-    flex: 1,
-    width: 170,
+    width: 175,
     height: 200,
+  },
+  movieInfo: {
+    marginLeft: 5,
   },
   movieTitle: {
     marginTop: 5,
     fontSize: 15,
     fontWeight: '500',
+    textAlign: 'left',
     flexDirection: 'row',
     color: colors.primary,
+    marginLeft: 10,
   },
   rating: {
     marginRight: 15,
@@ -141,12 +163,15 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     flexDirection: 'row',
     color: colors.primary,
+    marginLeft: 10,
   },
   release: {
     marginTop: 5,
     fontSize: 15,
     fontWeight: '500',
     flexDirection: 'row',
+    color: colors.primary,
+    marginLeft: 10,
   },
 });
 
