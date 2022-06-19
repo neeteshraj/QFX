@@ -41,7 +41,7 @@ const DrawerNavigator: FC<IProps> = () => {
       screenOptions={{
         drawerLabelStyle: {
           color: colors.primary,
-          fontSize: 18,
+          fontSize: 17,
           fontWeight: 'normal',
         },
         headerShown: false,
