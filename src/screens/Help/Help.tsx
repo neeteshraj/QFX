@@ -13,7 +13,7 @@ const Help: FC<IProps> = () => {
   const {container, text} = styles;
   return (
     <View style={container}>
-      <Text style={text}>Help</Text>
+      <Text style={text}>This Screen is under development!</Text>
     </View>
   );
 };

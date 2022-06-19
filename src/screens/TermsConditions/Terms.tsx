@@ -13,7 +13,7 @@ const TermsAndConditions: FC<IProps> = () => {
   const {container, text} = styles;
   return (
     <View style={container}>
-      <Text style={text}>TermsAndConditions</Text>
+      <Text style={text}>This Screen is under development!</Text>
     </View>
   );
 };
