@@ -52,7 +52,7 @@ yarn android
   c) Cinemas
 - When a movie is clicked it displays the movie details in a new screen (MovieDetails).
 - Movie Details screen has MovieTrailer, Movie title, rating, genre, runtime, director, cast ,annotation and Buy/Reserve ticket option.
-- If the user is loggedin then only we can navigate to the buy/reserve screen else it will redirect us to login screen for logging in.
 - The buy/reserve screen (Show Selection) contains information about movie with movie show time in corresponding cinema hall.
+- The show information in (Show Selection Screen) is pressable and when the show information is pressed, if the user is logged in then it will pop up an Alert box showing that feature will be available soon. If the user is not logged in then it will redirect the user to login screen.
 - My Profile screen contains the information about the QFX account identity.
 - Application has Drawer as a main navigator to navigate between different screens.

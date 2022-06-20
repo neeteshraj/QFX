@@ -1,6 +1,8 @@
 import colors from '@assets/styles/colors';
-import React, {FC} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import React, {FC, useContext} from 'react';
+import {View, Text, StyleSheet, Alert, TouchableOpacity} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
+import {AuthContext} from '@components/Context/AuthContext';
 
 interface IProps {
   propName: any;
@@ -25,6 +27,15 @@ const SecondDay: FC<IProps> = ({propName}) => {
   } = styles;
 
   const {showDate} = propName.data;
+  const {userInfo} = useContext(AuthContext);
+
+  const navigation = useNavigation();
+
+  const handleSelected = () => {
+    userInfo
+      ? Alert.alert('Feature coming soon')
+      : navigation.navigate('Login', {});
+  };
 
   let data = new Date(showDate);
   let hrs = data.getHours();
@@ -46,8 +57,10 @@ const SecondDay: FC<IProps> = ({propName}) => {
         </View>
         <View style={seperator} />
         <View style={showInformation}>
-          <Text style={showTime}>{postTime}</Text>
-          <Text style={showHrs}>HRS</Text>
+          <TouchableOpacity onPress={handleSelected}>
+            <Text style={showTime}>{postTime}</Text>
+            <Text style={showHrs}>HRS</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </View>

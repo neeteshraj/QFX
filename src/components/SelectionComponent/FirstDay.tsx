@@ -1,6 +1,10 @@
+import React, {FC, useContext} from 'react';
 import colors from '@assets/styles/colors';
-import React, {FC} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity, Alert} from 'react-native';
+
+import {useNavigation} from '@react-navigation/native';
+
+import {AuthContext} from '@components/Context/AuthContext';
 
 interface IProps {
   propName: any;
@@ -24,6 +28,8 @@ const FirstDay: FC<IProps> = ({propName}) => {
     showHrs,
   } = styles;
 
+  const {userInfo} = useContext(AuthContext);
+  const navigation = useNavigation();
   const {showDate} = propName.data;
 
   let data = new Date(showDate);
@@ -37,6 +43,12 @@ const FirstDay: FC<IProps> = ({propName}) => {
   }
   const postTime = hrs + ':' + mins;
 
+  const showSelected = () => {
+    userInfo
+      ? Alert.alert('Feature coming soon')
+      : navigation.navigate('Login', {});
+  };
+
   return (
     <View style={container}>
       <View style={movieInformation}>
@@ -46,8 +58,10 @@ const FirstDay: FC<IProps> = ({propName}) => {
         </View>
         <View style={seperator} />
         <View style={showInformation}>
-          <Text style={showTime}>{postTime}</Text>
-          <Text style={showHrs}>HRS</Text>
+          <TouchableOpacity onPress={showSelected}>
+            <Text style={showTime}>{postTime}</Text>
+            <Text style={showHrs}>HRS</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </View>

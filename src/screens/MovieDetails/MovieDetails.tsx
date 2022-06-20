@@ -60,11 +60,9 @@ const MovieDetails: FC<IProps> = ({data}: any) => {
 
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
   const buyReserveTicket = () => {
-    userInfo
-      ? navigation.navigate('Selection', {
-          data,
-        })
-      : navigation.navigate('Login', {});
+    navigation.navigate('Selection', {
+      data,
+    });
   };
 
   return (
