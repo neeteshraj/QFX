@@ -1,3 +1,4 @@
+/* eslint-disable no-lone-blocks */
 import React, {FC, useContext} from 'react';
 import {
   View,
@@ -5,6 +6,7 @@ import {
   SafeAreaView,
   StyleSheet,
   TouchableOpacity,
+  Alert,
 } from 'react-native';
 import youtubeParser from '@utils/youtubeParser';
 import YoutubePlayer from 'react-native-youtube-iframe';
@@ -60,9 +62,11 @@ const MovieDetails: FC<IProps> = ({data}: any) => {
 
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
   const buyReserveTicket = () => {
-    navigation.navigate('Selection', {
-      data,
-    });
+    {
+      userInfo
+        ? Alert.alert('Feature Coming soon')
+        : navigation.navigate('Login', {});
+    }
   };
 
   return (
